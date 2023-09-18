@@ -17,7 +17,8 @@
 			},
 			"extensions": [
 				"vscjava.vscode-java-pack",
-				"GitHub.github-vscode-theme"
+				"GitHub.github-vscode-theme",
+				"vscjava.vscode-gradle"
 			]
 		}
 	},
