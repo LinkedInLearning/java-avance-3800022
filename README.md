@@ -1,36 +1,43 @@
-# COURSENAME
-This is the repository for the LinkedIn Learning course `course-name`. The full course is available from [LinkedIn Learning][lil-course-url].
+# JAVA AVANCÉ
+Ce dossier Repository est lié au cours `Java avancé`. Le cours entier est disponible sur [LinkedIn Learning][lil-course-url].
 
-![course-name-alt-text][lil-thumbnail-url] 
+![Nom final de la formation][lil-thumbnail-url]
 
-_See the readme file in the main branch for updated instructions and information._
+_Voir le fichier readme file de la branche principale pour des instructions et informations actualisées._
 ## Instructions
-This repository has branches for each of the videos in the course. You can use the branch pop up menu in github to switch to a specific branch and take a look at the course at that stage, or you can add `/tree/BRANCH_NAME` to the URL to go to the branch you want to access.
+Pour utiliser GitHub Codespaces et faire apparaître l'environnement du cours dans votre navigateur, il vous suffit de cliquer sur :
+
+- Fork à droite du nom du dépôt, pour faire votre fork de ce dépôt,
+- le bouton <> Code, pour faire sélectionner l'onglet Codespaces,
+- le bouton Create codespace on main, pour initier et faire apparaître un codespace.
+
+Ce dépôt possède une ou deux branches par leçon (vidéo de cours). Vous pouvez naviguer dans les versions grâce au menu d'accès aux branches accessible en cliquant sur le nom de branche en bas à gauche de VisualStudio Code.
 
 ## Branches
-The branches are structured to correspond to the videos in the course. The naming convention is `CHAPTER#_MOVIE#`. As an example, the branch named `02_03` corresponds to the second chapter and the third video in that chapter. 
-Some branches will have a beginning and an end state. These are marked with the letters `b` for "beginning" and `e` for "end". The `b` branch contains the code as it is at the beginning of the movie. The `e` branch contains the code as it is at the end of the movie. The `main` branch holds the final state of the code when in the course.
+Les branches sont structurées de manière à correspondre aux vidéos du cours. La convention de nommage est : CHAPITRE#_VIDEO#. Par exemple, la branche nommée 02_03 correspond au second chapitre, et à la troisième vidéo de ce chapitre. Certaines branches ont un état de départ et de fin.
+La branche 02_03_d correspond au code du début de la vidéo.
+La branche 02_03_f correspond au code à la fin de la vidéo.
 
-When switching from one exercise files branch to the next after making changes to the files, you may get a message like this:
+En changeant de branche, après avoir fait des changements, il se peut que vous ayez ce message :
 
-    error: Your local changes to the following files would be overwritten by checkout:        [files]
-    Please commit your changes or stash them before you switch branches.
-    Aborting
+    erreur : Vos changements locaux sur les fichiers suivants seront écrasés par le basculement (checkout) : [fichiers]
+    Validez (commit) vos changement ou réservez (stash) les avant de changer de branche.
 
-To resolve this issue:
+Pour résoudre ce problème :
 	
-    Add changes to git using this command: git add .
-	Commit changes using this command: git commit -m "some message"
+- Ajoutez vos changements avec la commande : git add .
+- Validez les avec commande: git commit -m "un message"
 
-## Installing
-1. To use these exercise files, you must have the following installed:
-	- [list of requirements for course]
-2. Clone this repository into your local machine using the terminal (Mac), CMD (Windows), or a GUI tool like SourceTree.
-3. [Course-specific instructions]
+## Formateur
+
+**Sylvain Labasse** 
+
+Retrouvez mes autres formations sur [LinkedIn Learning][lil-URL-trainer].
 
 
 [0]: # (Replace these placeholder URLs with actual course URLs)
 
 [lil-course-url]: https://www.linkedin.com/learning/
 [lil-thumbnail-url]: http://
+[lil-URL-trainer]: https://www.linkedin.com/learning/instructors/sylvain-labasse
 
