@@ -1,15 +1,14 @@
 package com.syllab.ventes;
 
-import java.util.UUID;
+import java.time.Instant;
 
 /**
  * Représente un article avec un nom et un prix de vente.
  */
 public class Article {
-    @SuppressWarnings("unused")
-    private final UUID uuid = UUID.randomUUID();
-    private String nom;
-    private double prixHt;
+    private final String nom;
+    private final double prixHt;
+    private Instant abandonne = Instant.MAX;
 
     /**
      * Initialise un article, défini par un nom et son prix de vente hors taxe.
@@ -17,6 +16,15 @@ public class Article {
      * @param prixHt Prix de vente hors taxe.
      */
     public Article(String nom, double prixHt) {
+        if(nom == null) {
+            // Le nom de l'article doit être renseigné.
+        }
+        if(nom.length()<2) {
+            // Le nom de l'article doit faire au moins 2 caractères.
+        }
+        if(prixHt<=0) {
+            // Le prix doit être strictement positif.
+        }
         this.nom = nom;
         this.prixHt = prixHt;
     }
@@ -28,21 +36,35 @@ public class Article {
         return this.nom;
     }
     /**
+     * Vérifie si un article est abandonné (plus disponible).
+     * @return Vrai si le article est abandonné, faux sinon.
+     */
+    public boolean estAbandonne() {
+        return this.abandonne != Instant.MAX;
+    }
+    /**
+     * Obtient le moment à partir duquel un article n'a plus été disponible.
+     * @return Moment à partir duquel l'article n'a plus été disponible.
+     */
+    public Instant abandonne() {
+        return this.abandonne;
+    }
+    /**
+     * Spécifie le moment à partir duquel l'article n'est ou ne sera plus disponible.
+     * @param moment Moment à partir duquel l'article n'est ou ne sera plus disponible.
+     */
+    public void abandonner(Instant moment) {
+        this.abandonne = moment;
+    }
+    /**
      * Obtient le prix de vente hors taxe de l'article.
      * @return Prix hors taxe de l'article.
      */
     public double prixHt() {
+        if(estAbandonne()) {
+            // Article abandonné, pas de prix disponible.
+        }
         return this.prixHt;
-    }
-    /**
-     * Obtient le prix de vente TTC de l'article pour une TVA à 20%.
-     * @deprecated Conservé pour compatibilité
-     * @return Prix de vente TTC
-     * @see #prixTTC(double)
-     */
-    @Deprecated
-    public double prixTTC() {
-        return prixHt()*1.2;
     }
     /**
      * Obtient le prix de vente TTC de l'article pour un taux donné.
@@ -50,6 +72,9 @@ public class Article {
      * @return Prix de vente TTC
      */
     public double prixTTC(double tva) {
+        if(tva <= 0.0) {
+            // Le taux de tva doit être strictement positif.
+        }
         return prixHt()*(1+tva);
     }
     /**
