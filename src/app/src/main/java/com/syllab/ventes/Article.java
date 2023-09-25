@@ -17,13 +17,13 @@ public class Article {
      */
     public Article(String nom, double prixHt) {
         if(nom == null) {
-            // Le nom de l'article doit être renseigné.
+            throw new NullPointerException("Le nom de l'article doit être renseigné.");
         }
         if(nom.length()<2) {
-            // Le nom de l'article doit faire au moins 2 caractères.
+            throw new IllegalArgumentException("Le nom de l'article doit faire au moins 2 caractères.");
         }
         if(prixHt<=0) {
-            // Le prix doit être strictement positif.
+            throw new IllegalArgumentException("Le prix doit être strictement positif.");
         }
         this.nom = nom;
         this.prixHt = prixHt;
@@ -62,7 +62,7 @@ public class Article {
      */
     public double prixHt() {
         if(estAbandonne()) {
-            // Article abandonné, pas de prix disponible.
+            throw new IllegalStateException("Article abandonné, pas de prix disponible.");
         }
         return this.prixHt;
     }
@@ -73,7 +73,7 @@ public class Article {
      */
     public double prixTTC(double tva) {
         if(tva <= 0.0) {
-            // Le taux de tva doit être strictement positif.
+            throw new IllegalArgumentException("Le taux de tva doit être strictement positif.");
         }
         return prixHt()*(1+tva);
     }
