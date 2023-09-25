@@ -14,6 +14,8 @@ public class Article {
      * Initialise un article, défini par un nom et son prix de vente hors taxe.
      * @param nom Nom de l'article.
      * @param prixHt Prix de vente hors taxe.
+     * @throws NullPointerException Nom de l'article null
+     * @throws IllegalArgumentException Nom ou prix non valide
      */
     public Article(String nom, double prixHt) {
         if(nom == null) {
@@ -59,6 +61,7 @@ public class Article {
     /**
      * Obtient le prix de vente hors taxe de l'article.
      * @return Prix hors taxe de l'article.
+     * @throws IllegalStateException Article abandonné (non disponible)
      */
     public double prixHt() {
         if(estAbandonne()) {
@@ -70,6 +73,7 @@ public class Article {
      * Obtient le prix de vente TTC de l'article pour un taux donné.
      * @param tva Taux de tva utilisé pour le calcul. Ex: 0.2 = 20%
      * @return Prix de vente TTC
+     * @throws IllegalArgumentException Taux de TVA négatif.
      */
     public double prixTTC(double tva) {
         if(tva <= 0.0) {
