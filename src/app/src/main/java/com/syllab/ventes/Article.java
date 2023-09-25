@@ -61,11 +61,11 @@ public class Article {
     /**
      * Obtient le prix de vente hors taxe de l'article.
      * @return Prix hors taxe de l'article.
-     * @throws IllegalStateException Article abandonné (non disponible)
+     * @throws EtatArticleException Article abandonné (non disponible)
      */
-    public double prixHt() {
+    public double prixHt() throws EtatArticleException {
         if(estAbandonne()) {
-            throw new IllegalStateException("Article abandonné, pas de prix disponible.");
+            throw new EtatArticleException(this, "Article abandonné, pas de prix disponible.");
         }
         return this.prixHt;
     }
@@ -74,8 +74,9 @@ public class Article {
      * @param tva Taux de tva utilisé pour le calcul. Ex: 0.2 = 20%
      * @return Prix de vente TTC
      * @throws IllegalArgumentException Taux de TVA négatif.
+     * @throws EtatArticleException Article abandonné (non disponible)
      */
-    public double prixTTC(double tva) {
+    public double prixTTC(double tva) throws EtatArticleException {
         if(tva <= 0.0) {
             throw new IllegalArgumentException("Le taux de tva doit être strictement positif.");
         }
@@ -88,6 +89,8 @@ public class Article {
      */
     @Override
     public String toString() {
-        return String.format("%s (%.2f)", nom(), prixHt());
+        return estAbandonne() 
+            ? String.format("%s (abandonné)", nom())
+            : String.format("%s (%.2f)", nom(), this.prixHt);
     }
 }
