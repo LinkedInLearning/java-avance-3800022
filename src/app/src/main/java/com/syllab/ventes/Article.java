@@ -1,23 +1,32 @@
 package com.syllab.ventes;
 
 import java.time.Instant;
+import java.util.regex.Pattern;
 
 /**
  * Représente un article avec un nom et un prix de vente.
  */
 public class Article {
-    private final String nom;
+    private static Pattern validref = null;
+    private final String ref, nom;
     private final double prixHt;
     private Instant abandonne = Instant.MAX;
 
     /**
-     * Initialise un article, défini par un nom et son prix de vente hors taxe.
+     * Initialise un article, défini par une référence, un nom et son prix de vente hors taxe.
+     * @param ref Référence de l'article : 2 lettres majuscules suivies de 2 chiffres.
      * @param nom Nom de l'article.
      * @param prixHt Prix de vente hors taxe.
      * @throws NullPointerException Nom de l'article null
      * @throws IllegalArgumentException Nom ou prix non valide
      */
-    public Article(String nom, double prixHt) {
+    public Article(String ref, String nom, double prixHt) {
+        if(validref == null) {
+            validref = Pattern.compile("[A-Z]{2}\\d{2}");
+        }
+        if(!validref.matcher(ref).matches()) {
+            throw new IllegalArgumentException("La ref de l'article est constituée de 2 lettres suivies de 2 chiffres.");
+        }
         if(nom == null) {
             throw new NullPointerException("Le nom de l'article doit être renseigné.");
         }
@@ -27,8 +36,16 @@ public class Article {
         if(prixHt<=0) {
             throw new IllegalArgumentException("Le prix doit être strictement positif.");
         }
+        this.ref = ref;
         this.nom = nom;
         this.prixHt = prixHt;
+    }
+    /**
+     * Obtient la référence de l'article.
+     * @return Référence de l'article.
+     */
+    public String ref() {
+        return this.ref;
     }
     /**
      * Obtient le nom de l'article
@@ -90,7 +107,7 @@ public class Article {
     @Override
     public String toString() {
         return estAbandonne() 
-            ? String.format("%s (abandonné)", nom())
-            : String.format("%s (%.2f)", nom(), this.prixHt);
+            ? String.format("[%s] %s (abandonné)", ref(), nom())
+            : String.format("[%s] %s (%.2f)", ref(), nom(), this.prixHt);
     }
 }
