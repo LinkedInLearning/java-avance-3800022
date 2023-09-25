@@ -6,6 +6,7 @@ import java.util.UUID;
  * Représente un article avec un nom et un prix de vente.
  */
 public class Article {
+    @SuppressWarnings("unused")
     private final UUID uuid = UUID.randomUUID();
     private String nom;
     private double prixHt;
@@ -35,10 +36,11 @@ public class Article {
     }
     /**
      * Obtient le prix de vente TTC de l'article pour une TVA à 20%.
-     * <strong>Obsolète : conservé pour compatibilité</strong>
+     * @deprecated Conservé pour compatibilité
      * @return Prix de vente TTC
      * @see #prixTTC(double)
      */
+    @Deprecated
     public double prixTTC() {
         return prixHt()*1.2;
     }

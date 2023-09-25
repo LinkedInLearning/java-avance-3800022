@@ -5,6 +5,6 @@ public class App {
         var article = new Article("Skateboard", 39.90);
     
         System.out.println(article);
-        System.out.printf("%s : %.2f euros TTC", article.nom(), article.prixTTC());
+        System.out.printf("%s : %.2f euros TTC", article.nom(), article.prixTTC(.20));
     }
 }
