@@ -37,8 +37,8 @@ public class App {
             }
 
             // Parcours du catalogue
-            var filtrePrix = new IntervallePrix(10.00, 50.00);
-            var filtreDate = new IntervalleTemps(Instant.MIN, OffsetDateTime.of(2023, 9, 23, 0, 0, 0, 0, ZoneOffset.ofHours(0)).toInstant());
+            var filtrePrix = new Intervalle<Double>(10.00, 50.00);
+            var filtreDate = new Intervalle<Instant>(Instant.MIN, OffsetDateTime.of(2023, 9, 23, 0, 0, 0, 0, ZoneOffset.ofHours(0)).toInstant());
             
             for(var article : catalogue) {
                 if( !filtreDate.contient(article.abandonne())
@@ -61,13 +61,8 @@ public class App {
             System.out.println("Fin de l'application");
         }
     }
-    public record IntervallePrix(double min, double max) {
-        public boolean contient(double valeur) {
-            return this.min() <= valeur && valeur <= this.max();
-        }
-    }
-    public record IntervalleTemps(Instant min, Instant max) {
-        public boolean contient(Instant valeur) {
+    public record Intervalle<T extends Comparable<T>>(T min, T max) {
+        public boolean contient(T valeur) {
             return this.min().compareTo(valeur) <= 0 && valeur.compareTo(this.max()) <= 0;
         }
     }
