@@ -31,6 +31,14 @@ public class Animal implements Serializable {
     public Iterable<String> getPhotoUrls()                   { return photoUrls; }
     public void             setPhotoUrls(String[] photoUrls) { this.photoUrls = Arrays.asList(photoUrls); }
 
+    public String toJson() {
+        return String.format(
+            "{ \"id\": %d, \"name\": \"%s\", \"photoUrls\":[\"%s\"], \"tags\": [], \"status\":\"%s\" }",
+            getId(), getNom(),
+            String.join("\",\"", getPhotoUrls()),
+            getStatut().toJson());
+    }
+
     @Override
     public String toString() {
         return String.format("[%d] %s (%s)", getId(), getNom(), getStatut());
