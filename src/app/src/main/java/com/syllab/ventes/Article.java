@@ -11,9 +11,10 @@ public class Article {
     private final String ref, nom;
     private final double prixHt;
     private Instant abandonne = Instant.MAX;
+    private final String[] variations;
 
     /**
-     * Initialise un article, défini par une référence, un nom et son prix de vente hors taxe.
+     * Initialise un article sans variation, défini par une référence, un nom et son prix de vente hors taxe.
      * @param ref Référence de l'article : 2 lettres majuscules suivies de 2 chiffres.
      * @param nom Nom de l'article.
      * @param prixHt Prix de vente hors taxe.
@@ -21,6 +22,18 @@ public class Article {
      * @throws IllegalArgumentException Nom ou prix non valide
      */
     public Article(String ref, String nom, double prixHt) {
+        this(ref, nom, prixHt, new String[] {"standard"});
+    }
+    /**
+     * Initialise un article, défini par une référence, un nom, son prix de vente hors taxe et ses variations.
+     * @param ref Référence de l'article : 2 lettres majuscules suivies de 2 chiffres.
+     * @param nom Nom de l'article.
+     * @param prixHt Prix de vente hors taxe.
+     * @param variations Liste des variations du produit
+     * @throws NullPointerException Nom de l'article null
+     * @throws IllegalArgumentException Nom ou prix non valide
+     */
+    public Article(String ref, String nom, double prixHt, String[] variations) {
         if(validref == null) {
             validref = Pattern.compile("[A-Z]{2}\\d{2}");
         }
@@ -39,6 +52,7 @@ public class Article {
         this.ref = ref;
         this.nom = nom;
         this.prixHt = prixHt;
+        this.variations = variations;
     }
     /**
      * Obtient la référence de l'article.
@@ -53,6 +67,13 @@ public class Article {
      */
     public String nom() {
         return this.nom;
+    }
+    /**
+     * Obtient les variations de l'article (couleurs, dimensions, ...).
+     * @return Tableau des variations de l'article.
+     */
+    public String[] variations() {
+        return this.variations;
     }
     /**
      * Vérifie si un article est abandonné (plus disponible).
