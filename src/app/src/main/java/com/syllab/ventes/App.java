@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 
 public class App {
+    private static volatile int comparaisons = 0; 
     public static void main(String[] args) {
         try
         {
@@ -15,8 +16,14 @@ public class App {
             catalogue.add(new Article("CS43", "Casque"    , 19.50));
             catalogue.add(new Article("GP98", "Grip"      , 7.95));
 
-            catalogue.sort((a, b) -> -a.nom().compareTo(b.nom()));
-            
+            var ordre = -1;
+
+            catalogue.sort((a, b) -> { 
+                comparaisons++; 
+                return ordre * a.nom().compareTo(b.nom());
+            });
+            System.out.printf("Le tri a effectué %d comparaisons.\n", comparaisons);
+
             System.out.println(Arrays.toString(catalogue.toArray()));
 
             // Recherche par référence CS43
