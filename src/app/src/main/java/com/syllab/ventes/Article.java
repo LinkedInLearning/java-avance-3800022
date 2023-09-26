@@ -76,6 +76,15 @@ public class Article {
         this.abandonne = moment;
     }
     /**
+     * Compare deux articles selon leur référence.
+     * @param a Premier article à comparer.
+     * @param b Second article à comparer.
+     * @return <0 si la référence de a précède celle de b, 0 si les deux références sont identiques, >0 sinon.
+     */
+    public static int comparerRef(Article a, Article b) {
+        return a.ref().compareTo(b.ref());
+    }
+    /**
      * Obtient le prix de vente hors taxe de l'article.
      * @return Prix hors taxe de l'article.
      * @throws EtatArticleException Article abandonné (non disponible)
