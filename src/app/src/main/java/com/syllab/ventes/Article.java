@@ -87,11 +87,11 @@ public class Article {
     /**
      * Obtient le prix de vente hors taxe de l'article.
      * @return Prix hors taxe de l'article.
-     * @throws EtatArticleException Article abandonné (non disponible)
+     * @throws IllegalStateException Article abandonné (non disponible)
      */
-    public double prixHt() throws EtatArticleException {
+    public double prixHt() {
         if(estAbandonne()) {
-            throw new EtatArticleException(this, "Article abandonné, pas de prix disponible.");
+            throw new IllegalStateException("Article abandonné, pas de prix disponible.");
         }
         return this.prixHt;
     }
@@ -100,9 +100,8 @@ public class Article {
      * @param tva Taux de tva utilisé pour le calcul. Ex: 0.2 = 20%
      * @return Prix de vente TTC
      * @throws IllegalArgumentException Taux de TVA négatif.
-     * @throws EtatArticleException Article abandonné (non disponible)
      */
-    public double prixTTC(double tva) throws EtatArticleException {
+    public double prixTTC(double tva) {
         if(tva <= 0.0) {
             throw new IllegalArgumentException("Le taux de tva doit être strictement positif.");
         }
