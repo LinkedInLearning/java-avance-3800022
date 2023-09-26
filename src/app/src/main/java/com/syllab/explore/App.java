@@ -2,7 +2,7 @@ package com.syllab.explore;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.ArrayList;
+import java.nio.file.StandardOpenOption;
 import java.io.IOException;
 
 public class App {
@@ -26,8 +26,7 @@ public class App {
                     }
                 }
             });
-            // Ecrire le contenu de stats.toString() dans ./stats.txt
-            System.out.println(stats.toString());
+            Files.writeString(Path.of("./stats.txt"), stats.toString(), StandardOpenOption.CREATE);
         }
         catch(IOException e) {
             System.err.print("Impossible de parcourir le répertoire courant : ");
@@ -35,7 +34,7 @@ public class App {
         }
     }
     public static String lireFichierTexte(Path p) throws IOException {
-        var lines = new ArrayList<String>();
+        var lines = Files.readAllLines(p);
 
         return String.format(
             " : %d lignes dont %d contiennent le mot 'java'.\n", 
@@ -46,7 +45,7 @@ public class App {
         );
     }
     public static String lireFichierBinaire(Path p) throws IOException {
-        var octets = new byte[] {};
+        var octets = Files.readAllBytes(p);
 
         if(octets[0]==(byte)0xff && octets[1]==(byte)0xd8) {
             return String.format(" : Fichier JPEG version %d.%d\n", octets[11], octets[12]);
