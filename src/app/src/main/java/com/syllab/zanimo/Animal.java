@@ -1,9 +1,10 @@
 package com.syllab.zanimo;
 
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.List;
 
-public class Animal {
+public class Animal implements Serializable {
     private int id;
     private String nom;
     private List<String> photoUrls;

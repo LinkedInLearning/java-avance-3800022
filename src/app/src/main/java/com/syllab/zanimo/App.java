@@ -17,18 +17,20 @@ public class App {
         var cheminBin = Path.of("./liste.bin");
 
         // Sérialisation
-        try(var out = Files.newOutputStream(cheminBin))
+        try(var out = Files.newOutputStream(cheminBin); 
+            var serialiseur = new ObjectOutputStream(out))
         {
-            
+            serialiseur.writeObject(animalerie);
         }
         catch (IOException e) {
             e.printStackTrace(System.err);
         }
         
         // Désérialisation
-        try(var in = Files.newInputStream(cheminBin))
+        try(var in = Files.newInputStream(cheminBin); 
+            var deserialiseur = new ObjectInputStream(in))
         {
-            var animalerie2 = animalerie;
+            var animalerie2 = (Animalerie)deserialiseur.readObject();
 
             Arrays
                 .stream(animalerie2.getAnimaux())
@@ -37,10 +39,16 @@ public class App {
         catch (IOException e) {
             e.printStackTrace(System.err);
         }
+        catch (ClassNotFoundException e) {
+            e.printStackTrace(System.err);
+        }
             
         // Sérialisation XML
-        try(var outXml = Files.newOutputStream(Path.of("./liste.xml"))) {
-            // 
+        try(var outXml = Files.newOutputStream(Path.of("./liste.xml"));
+            var encordeur = new XMLEncoder(outXml)) 
+        {
+            encordeur.writeObject(animalerie);
+            encordeur.flush(); 
         }
         catch (IOException e) {
             e.printStackTrace(System.err);

@@ -1,6 +1,8 @@
 package com.syllab.zanimo;
 
-public class Animalerie
+import java.io.Serializable;
+
+public class Animalerie implements Serializable
 {
     public Animalerie()                      { }
     public Animalerie(Animal[] animaux)      { setAnimaux(animaux); } 
