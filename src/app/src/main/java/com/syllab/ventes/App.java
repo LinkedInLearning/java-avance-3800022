@@ -15,18 +15,8 @@ public class App {
             catalogue.add(new Article("CS43", "Casque"    , 19.50));
             catalogue.add(new Article("GP98", "Grip"      , 7.95));
 
-            // catalogue.sort(Article::comparerRef);
-            // catalogue.sort((a, b) -> -a.nom().compareTo(b.nom()));
-            catalogue.sort( (a, b) -> {
-                try
-                {
-                    return Double.compare(a.prixHt(), b.prixHt());
-                }
-                catch(EtatArticleException e) {
-                    return a.estAbandonne() ? -1 : 1;
-                }
-            });
-
+            catalogue.sort((a, b) -> -a.nom().compareTo(b.nom()));
+            
             System.out.println(Arrays.toString(catalogue.toArray()));
 
             // Recherche par référence CS43
