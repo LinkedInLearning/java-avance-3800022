@@ -8,4 +8,4 @@
  */
 
 rootProject.name = 'composite'
-include('app')
+include('app', 'moda')

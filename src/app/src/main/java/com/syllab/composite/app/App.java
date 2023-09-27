@@ -3,12 +3,14 @@
  */
 package com.syllab.composite.app;
 
+import com.syllab.composite.moda.ModuleA;
+
 public class App {
     public String getGreeting() {
         return "Hello World!";
     }
 
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+        System.out.println(ModuleA.getVersion());
     }
 }
