@@ -14,44 +14,21 @@ public class App {
         }
     }
 
-    public static class Alice extends Thread {
-        private int limite, delai;
-
-        public Alice(int limite, int delai) {
-            this.limite = limite;
-            this.delai = delai;
-        }
-        @Override
-        public void run() {
-            alphabet("^-^", this.limite, this.delai);
-        }
-    }
-
-    public static class Bob implements Runnable {
-        private int limite, delai;
-
-        public Bob(int limite, int delai) {
-            this.limite = limite;
-            this.delai = delai;
-        }
-        @Override
-        public void run() {
-            alphabet("°o°", this.limite, this.delai);
-        }
-    }
-
     public static void main(String[] args) {
-        var thAlice = new Alice(18, 500);
-        var thBob   = new Thread(new Bob(21, 300));
-        var thCarol = new Thread(() -> alphabet("o_o", 20, 700));
+        var th1 = new Thread(() -> alphabet("^-^", 18, 500));
+        var th2 = new Thread(() -> alphabet("°o°", 21, 300));
+        var th3 = new Thread(() -> alphabet("o_o", 20, 700));
+        var th4 = new Thread(() -> alphabet("°!°", 15, 1000));
 
-        thAlice.start();
-        thBob  .start();
-        thCarol.start();
+        th1.start();
+        th2.start();
+        th3.start();
+        th4.start();
         try {
-            thAlice.join();
-            thBob  .join();
-            thCarol.join();
+            th1.join();
+            th2.join();
+            th3.join();
+            th4.join();
         }
         catch(InterruptedException e) {
             e.printStackTrace(System.err);
