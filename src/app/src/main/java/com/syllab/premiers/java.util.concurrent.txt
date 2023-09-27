@@ -1,0 +1,67 @@
+Objets de synchro.
+    Semaphore
+    Phaser
+    CyclicBarrier
+    CountDownLatch
+    + java.util.concurrent.locks.*
+
+Structures "ThreadSafe" 
+    BlockingDeque<E>
+    BlockingQueue<E>
+    ConcurrentMap<K,V>
+    ConcurrentNavigableMap<K,V>
+    ArrayBlockingQueue<E>
+    ConcurrentHashMap<K,V>
+    ConcurrentHashMap.KeySetView<K,V>
+    ConcurrentLinkedDeque<E>
+    ConcurrentLinkedQueue<E>
+    ConcurrentSkipListMap<K,V>
+    ConcurrentSkipListSet<E>
+    CopyOnWriteArrayList<E>
+    CopyOnWriteArraySet<E>
+    DelayQueue<E extends Delayed>
+    LinkedBlockingDeque<E>
+    LinkedBlockingQueue<E>
+    LinkedTransferQueue<E>
+    PriorityBlockingQueue<E>
+    SynchronousQueue<E>
+    TransferQueue<E>
+    Exchanger<V>
+
+Gestion des tâches
+    CompletionService<V>
+    CompletionStage<T>
+    Executor
+    ExecutorService
+    Executors
+    ScheduledThreadPoolExecutor
+    ThreadLocalRandom
+    ThreadPoolExecutor
+    AbstractExecutorService
+    ScheduledExecutorService
+    ExecutorCompletionService<V>
+    ThreadFactory
+
+ForkJoin
+    ForkJoinPool
+    ForkJoinTask<V>
+    ForkJoinWorkerThread
+    RecursiveAction
+    RecursiveTask<V>
+    CountedCompleter<T>
+    ForkJoinPool.ForkJoinWorkerThreadFactory
+    ForkJoinPool.ManagedBlocker
+
+Résultats d'exécution
+    Future<V>
+    RunnableFuture<V>
+    RunnableScheduledFuture<V>
+    ScheduledFuture<V>
+    CompletableFuture<T>
+    FutureTask<V>
+    RejectedExecutionHandler
+
+Tâches
+    Callable<V>
+    Delayed    
+    CompletableFuture.AsynchronousCompletionTask
