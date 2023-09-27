@@ -38,7 +38,12 @@ public class RecherchePremiers extends RecursiveAction {
                     resultats.add(i);
                 }
             }
-            liste.enregistrer(resultats);
+            try {
+                this.liste.enregistrer(resultats);
+            }
+            catch(InterruptedException e) {
+                System.err.printf("/!\\%d-%d/!\\\\ ", this.debut, this.fin);
+            }
         }
         else {
             var milieu = (this.debut+this.fin)/2;
