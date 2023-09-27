@@ -1,20 +1,21 @@
 package com.syllab.premiers;
 
 import java.util.ArrayList;
+import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.RecursiveAction;
 
 public class RecherchePremiers extends RecursiveAction {
-    private final ListePremiers liste;
+    private final CopyOnWriteArrayList<Long> liste;
     private final long debut, fin;
 
-    public RecherchePremiers(ListePremiers liste, long debut, long fin) {
+    public RecherchePremiers(CopyOnWriteArrayList<Long> liste, long debut, long fin) {
         this.liste = liste;
         this.debut = debut;
         this.fin = fin;
     }
   
     private boolean estPremier(long n) {
-        for(long premier : this.liste.premiers()) {
+        for(long premier : this.liste) {
             if(n<premier && n%premier == 0) {
                 return false;
             }
@@ -38,12 +39,7 @@ public class RecherchePremiers extends RecursiveAction {
                     resultats.add(i);
                 }
             }
-            try {
-                this.liste.enregistrer(resultats);
-            }
-            catch(InterruptedException e) {
-                System.err.printf("/!\\%d-%d/!\\\\ ", this.debut, this.fin);
-            }
+            this.liste.addAll(resultats);
         }
         else {
             var milieu = (this.debut+this.fin)/2;

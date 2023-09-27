@@ -1,11 +1,12 @@
 package com.syllab.premiers;
 
+import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.ForkJoinPool;
 
 public class App {
     public static void main(String[] args) {
         var pool = ForkJoinPool.commonPool();
-        var premiers = new ListePremiers();
+        var premiers = new CopyOnWriteArrayList<Long>();
         
         pool.invoke(new RecherchePremiers(premiers, 1, 200_000));
 
