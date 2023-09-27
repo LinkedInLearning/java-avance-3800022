@@ -14,9 +14,47 @@ public class App {
         }
     }
 
+    public static class Alice extends Thread {
+        private int limite, delai;
+
+        public Alice(int limite, int delai) {
+            this.limite = limite;
+            this.delai = delai;
+        }
+        @Override
+        public void run() {
+            alphabet("^-^", this.limite, this.delai);
+        }
+    }
+
+    public static class Bob implements Runnable {
+        private int limite, delai;
+
+        public Bob(int limite, int delai) {
+            this.limite = limite;
+            this.delai = delai;
+        }
+        @Override
+        public void run() {
+            alphabet("°o°", this.limite, this.delai);
+        }
+    }
+
     public static void main(String[] args) {
-        alphabet("^-^", 18, 500);
-        alphabet("°o°", 21, 300);
-        alphabet("o_o", 20, 700);
+        var thAlice = new Alice(18, 500);
+        var thBob   = new Thread(new Bob(21, 300));
+        var thCarol = new Thread(() -> alphabet("o_o", 20, 700));
+
+        thAlice.start();
+        thBob  .start();
+        thCarol.start();
+        try {
+            thAlice.join();
+            thBob  .join();
+            thCarol.join();
+        }
+        catch(InterruptedException e) {
+            e.printStackTrace(System.err);
+        }
     }
 }
