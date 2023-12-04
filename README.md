@@ -8,8 +8,8 @@ _Voir le fichier readme file de la branche principale pour des instructions et i
 Pour utiliser GitHub Codespaces et faire apparaître l'environnement du cours dans votre navigateur, il vous suffit de cliquer sur :
 
 - Fork à droite du nom du dépôt, pour faire votre fork de ce dépôt,
-- le bouton <> Code, pour faire sélectionner l'onglet Codespaces,
-- le bouton Create codespace on main, pour initier et faire apparaître un codespace.
+- Le bouton <> Code, pour faire sélectionner l'onglet Codespaces,
+- Le bouton Create codespace on main, pour initier et faire apparaître un codespace.
 
 Ce dépôt possède une ou deux branches par leçon (vidéo de cours). Vous pouvez naviguer dans les versions grâce au menu d'accès aux branches accessible en cliquant sur le nom de branche en bas à gauche de VisualStudio Code.
 
