@@ -3,6 +3,8 @@ Ce dossier Repository est lié au cours `Java : Niveau avancé`. Le cours entier
 
 ![Nom final de la formation][lil-thumbnail-url]
 
+Dans cette formation qui s'adresse aux développeurs, Sylvain Labasse vous propose de vous plonger dans l'utilisation avancée de Java, l'incontournable langage de programmation orienté objet. Après avoir choisi et mis en place votre environnement de travail, vous apprendrez à manipuler les types et à étendre les syntaxes utilisées. Vous verrez comment lier les lambdas et les flux et de quelle manière utiliser les entrées/sorties. Puis, pour conclure, vous aborderez le multitasking et la structuration en modules.
+
 _Voir le fichier readme file de la branche principale pour des instructions et informations actualisées._
 ## Instructions
 Pour utiliser GitHub Codespaces et faire apparaître l'environnement du cours dans votre navigateur, il vous suffit de cliquer sur :
