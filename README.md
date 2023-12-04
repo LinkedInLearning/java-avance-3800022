@@ -1,15 +1,19 @@
-# JAVA AVANCÉ
-Ce dossier Repository est lié au cours `Java avancé`. Le cours entier est disponible sur [LinkedIn Learning][lil-course-url].
+# Java : Niveau avancé
+Ce dossier Repository est lié au cours `Java : Niveau avancé`. Le cours entier est disponible sur [LinkedIn Learning][lil-course-url].
 
 ![Nom final de la formation][lil-thumbnail-url]
+
+Dans cette formation qui s'adresse aux développeurs, Sylvain Labasse vous propose de vous plonger dans l'utilisation avancée de Java, l'incontournable langage de programmation orienté objet. Après avoir choisi et mis en place votre environnement de travail, vous apprendrez à manipuler les types et à étendre les syntaxes utilisées. Vous verrez comment lier les lambdas et les flux et de quelle manière utiliser les entrées/sorties. Puis, pour conclure, vous aborderez le multitasking et la structuration en modules.
+
+La meilleure façon d'apprendre un langage est de l'utiliser dans la pratique. C'est pourquoi ce cours est intégré à GitHub Codespaces, un environnement de développement instantané « dans le nuage » qui offre toutes les fonctionnalités de votre IDE préféré sans nécessiter de configuration sur une machine locale. Avec Codespaces, vous pouvez vous exercer à partir de n'importe quelle machine, à tout moment, tout en utilisant un outil que vous êtes susceptible de rencontrer sur votre lieu de travail. Consultez la vidéo "Utilisation de Codespaces GitHub dans le cadre de ce cours" pour savoir comment démarrer.
 
 _Voir le fichier readme file de la branche principale pour des instructions et informations actualisées._
 ## Instructions
 Pour utiliser GitHub Codespaces et faire apparaître l'environnement du cours dans votre navigateur, il vous suffit de cliquer sur :
 
 - Fork à droite du nom du dépôt, pour faire votre fork de ce dépôt,
-- le bouton <> Code, pour faire sélectionner l'onglet Codespaces,
-- le bouton Create codespace on main, pour initier et faire apparaître un codespace.
+- Le bouton <> Code, pour faire sélectionner l'onglet Codespaces,
+- Le bouton Create codespace on main, pour initier et faire apparaître un codespace.
 
 Ce dépôt possède une ou deux branches par leçon (vidéo de cours). Vous pouvez naviguer dans les versions grâce au menu d'accès aux branches accessible en cliquant sur le nom de branche en bas à gauche de VisualStudio Code.
 
@@ -37,7 +41,7 @@ Retrouvez mes autres formations sur [LinkedIn Learning][lil-URL-trainer].
 
 [0]: # (Replace these placeholder URLs with actual course URLs)
 
-[lil-course-url]: https://www.linkedin.com/learning/
-[lil-thumbnail-url]: http://
+[lil-course-url]: https://www.linkedin.com/learning/java-niveau-avance
+[lil-thumbnail-url]: https://media.licdn.com/dms/image/D560DAQEzuwjddDZaNw/learning-public-crop_675_1200/0/1701692528183?e=2147483647&v=beta&t=_I4O2154vCBCzGuVroCWJef-Kxl804P4zOx-7zT7hqY
 [lil-URL-trainer]: https://www.linkedin.com/learning/instructors/sylvain-labasse
 
