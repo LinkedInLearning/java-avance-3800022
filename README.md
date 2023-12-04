@@ -1,5 +1,5 @@
-# JAVA AVANCÉ
-Ce dossier Repository est lié au cours `Java avancé`. Le cours entier est disponible sur [LinkedIn Learning][lil-course-url].
+# Java : Niveau avancé
+Ce dossier Repository est lié au cours `Java : Niveau avancé`. Le cours entier est disponible sur [LinkedIn Learning][lil-course-url].
 
 ![Nom final de la formation][lil-thumbnail-url]
 
