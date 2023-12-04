@@ -37,7 +37,7 @@ Retrouvez mes autres formations sur [LinkedIn Learning][lil-URL-trainer].
 
 [0]: # (Replace these placeholder URLs with actual course URLs)
 
-[lil-course-url]: https://www.linkedin.com/learning/
-[lil-thumbnail-url]: http://
+[lil-course-url]: https://www.linkedin.com/learning/java-niveau-avance
+[lil-thumbnail-url]: https://media.licdn.com/dms/image/D560DAQEzuwjddDZaNw/learning-public-crop_675_1200/0/1701692528183?e=2147483647&v=beta&t=_I4O2154vCBCzGuVroCWJef-Kxl804P4zOx-7zT7hqY
 [lil-URL-trainer]: https://www.linkedin.com/learning/instructors/sylvain-labasse
 
